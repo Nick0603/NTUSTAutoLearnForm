@@ -1,0 +1,33 @@
+function randNext( l , h){
+	var length = h - l + 1;
+	var interregional = Math.floor(Math.random() * length);
+	var randomNumber = l + interregional;
+	return randomNumber;
+}
+
+
+if( top.location.search == ""){
+	var targetHref = document.getElementsByTagName("a")[2].href;
+	if( targetHref == ""){
+		alert("表單已經填完囉");
+	}else{
+		top.location.href = document.getElementsByTagName("a")[2].href;
+	}
+	
+}else{
+	var tableLength = document.querySelectorAll("input[id*='_1_'").length/5;
+
+	for(var i=1;i<=tableLength;i++){
+		inputElements = document.querySelectorAll("input[id*='_1_" + i + "'");
+
+		if(randNext(1,10) > 7){
+			var choseOption = randNext(2 -1 , 4 -1);
+		}else{
+			var choseOption = 3;
+		}
+		inputElements[choseOption].click();	
+	}
+
+	document.getElementById("Button1").click();
+}
+
